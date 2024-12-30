@@ -1,0 +1,715 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/27/2024  21:30:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\APP\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Timer.obj, .\Objects\Delay.obj, .\Objects\LED.obj, .\Objec
+>> ts\TrafficLights.obj, .\Objects\Nixie.obj, .\Objects\Key.obj TO .\Objects\project PRINT (.\Listings\project.m51) RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Timer.obj (TIMER)
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\LED.obj (LED)
+  .\Objects\TrafficLights.obj (TRAFFICLIGHTS)
+  .\Objects\Nixie.obj (NIXIE)
+  .\Objects\Key.obj (KEY)
+  D:\APP\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\APP\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\APP\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?NIXIE
+            DATA    0018H     000DH     UNIT         _DATA_GROUP_
+            DATA    0025H     0008H     UNIT         ?DT?MAIN
+            DATA    002DH     0001H     UNIT         ?DT?TRAFFICLIGHTS
+            IDATA   002EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     0003H     UNIT         ?PR?RED1_ON?LED
+                    0009H     0002H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     00F3H     UNIT         ?PR?_COUNTDOWN?TRAFFICLIGHTS
+            CODE    0101H     00EBH     UNIT         ?PR?MAIN?MAIN
+            CODE    01ECH     00D6H     UNIT         ?PR?_DAYMODE?TRAFFICLIGHTS
+            CODE    02C2H     008CH     UNIT         ?C_C51STARTUP
+            CODE    034EH     007FH     UNIT         ?PR?TIMER?MAIN
+            CODE    03CDH     004AH     UNIT         ?PR?_NIXIE1?NIXIE
+            CODE    0417H     0031H     UNIT         ?PR?KEY?KEY
+            CODE    0448H     002EH     UNIT         ?C_INITSEG
+            CODE    0476H     0022H     UNIT         ?PR?DAY_OR_NIGHT?MAIN
+            CODE    0498H     0019H     UNIT         ?C?LIB_CODE
+            CODE    04B1H     0018H     UNIT         ?PR?_DELAY?DELAY
+            CODE    04C9H     0015H     UNIT         ?PR?NIGHTMODE?TRAFFICLIGHTS
+            CODE    04DEH     0015H     UNIT         ?PR?LONG_GREEN1?TRAFFICLIGHTS
+            CODE    04F3H     0015H     UNIT         ?PR?LONG_GREEN2?TRAFFICLIGHTS
+            CODE    0508H     0015H     UNIT         ?PR?_TWONIXIE1?NIXIE
+            CODE    051DH     0015H     UNIT         ?PR?_TWONIXIE2?NIXIE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 2
+
+
+            CODE    0532H     0014H     UNIT         ?PR?TIMERINIT?TIMER
+            CODE    0546H     000EH     UNIT         ?PR?YELLOW1_FLASH?LED
+            CODE    0554H     000EH     UNIT         ?PR?YELLOW2_FLASH?LED
+            CODE    0562H     0003H     UNIT         ?PR?RED1_OFF?LED
+            CODE    0565H     0003H     UNIT         ?PR?RED1_TURN?LED
+            CODE    0568H     0003H     UNIT         ?PR?GREEN1_ON?LED
+            CODE    056BH     0003H     UNIT         ?PR?GREEN1_OFF?LED
+            CODE    056EH     0003H     UNIT         ?PR?GREEN1_TURN?LED
+            CODE    0571H     0003H     UNIT         ?PR?YELLOW1_ON?LED
+            CODE    0574H     0003H     UNIT         ?PR?YELLOW1_OFF?LED
+            CODE    0577H     0003H     UNIT         ?PR?YELLOW1_TURN?LED
+            CODE    057AH     0003H     UNIT         ?PR?RED2_ON?LED
+            CODE    057DH     0003H     UNIT         ?PR?RED2_OFF?LED
+            CODE    0580H     0003H     UNIT         ?PR?RED2_TURN?LED
+            CODE    0583H     0003H     UNIT         ?PR?GREEN2_ON?LED
+            CODE    0586H     0003H     UNIT         ?PR?GREEN2_OFF?LED
+            CODE    0589H     0003H     UNIT         ?PR?GREEN2_TURN?LED
+            CODE    058CH     0003H     UNIT         ?PR?YELLOW2_ON?LED
+            CODE    058FH     0003H     UNIT         ?PR?YELLOW2_OFF?LED
+            CODE    0592H     0003H     UNIT         ?PR?YELLOW2_TURN?LED
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT                                 DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?PR?TIMER?MAIN                        -----    -----
+  +--> ?PR?KEY?KEY
+  +--> ?PR?_DAYMODE?TRAFFICLIGHTS
+  +--> ?PR?NIGHTMODE?TRAFFICLIGHTS
+  +--> ?PR?LONG_GREEN1?TRAFFICLIGHTS
+  +--> ?PR?LONG_GREEN2?TRAFFICLIGHTS
+
+?PR?KEY?KEY                           -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_DELAY?DELAY                      0023H    0002H
+
+?PR?_DAYMODE?TRAFFICLIGHTS            0018H    0008H
+  +--> ?PR?GREEN1_ON?LED
+  +--> ?PR?GREEN2_OFF?LED
+  +--> ?PR?RED2_ON?LED
+  +--> ?PR?RED1_OFF?LED
+  +--> ?PR?YELLOW1_OFF?LED
+  +--> ?PR?YELLOW2_OFF?LED
+  +--> ?PR?GREEN1_OFF?LED
+  +--> ?PR?YELLOW1_FLASH?LED
+  +--> ?PR?RED1_ON?LED
+  +--> ?PR?RED2_OFF?LED
+  +--> ?PR?GREEN2_ON?LED
+  +--> ?PR?YELLOW2_FLASH?LED
+
+?PR?YELLOW1_FLASH?LED                 -----    -----
+  +--> ?PR?YELLOW1_TURN?LED
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 3
+
+
+
+?PR?YELLOW2_FLASH?LED                 -----    -----
+  +--> ?PR?YELLOW2_TURN?LED
+
+?PR?NIGHTMODE?TRAFFICLIGHTS           -----    -----
+  +--> ?PR?RED1_OFF?LED
+  +--> ?PR?RED2_OFF?LED
+  +--> ?PR?GREEN1_OFF?LED
+  +--> ?PR?GREEN2_OFF?LED
+  +--> ?PR?YELLOW2_FLASH?LED
+  +--> ?PR?YELLOW1_FLASH?LED
+
+?PR?LONG_GREEN1?TRAFFICLIGHTS         -----    -----
+  +--> ?PR?GREEN1_ON?LED
+  +--> ?PR?RED2_ON?LED
+  +--> ?PR?RED1_OFF?LED
+  +--> ?PR?GREEN2_OFF?LED
+  +--> ?PR?YELLOW2_OFF?LED
+  +--> ?PR?YELLOW1_OFF?LED
+
+?PR?LONG_GREEN2?TRAFFICLIGHTS         -----    -----
+  +--> ?PR?GREEN2_ON?LED
+  +--> ?PR?RED1_ON?LED
+  +--> ?PR?RED2_OFF?LED
+  +--> ?PR?GREEN1_OFF?LED
+  +--> ?PR?YELLOW2_OFF?LED
+  +--> ?PR?YELLOW1_OFF?LED
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                         -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                         -----    -----
+  +--> ?PR?TIMERINIT?TIMER
+  +--> ?PR?_DELAY?DELAY
+  +--> ?PR?_TWONIXIE1?NIXIE
+  +--> ?PR?_TWONIXIE2?NIXIE
+  +--> ?PR?GREEN1_ON?LED
+  +--> ?PR?RED2_ON?LED
+  +--> ?PR?GREEN2_OFF?LED
+  +--> ?PR?RED1_OFF?LED
+  +--> ?PR?YELLOW1_OFF?LED
+  +--> ?PR?YELLOW2_OFF?LED
+  +--> ?PR?GREEN2_ON?LED
+  +--> ?PR?RED1_ON?LED
+  +--> ?PR?GREEN1_OFF?LED
+  +--> ?PR?RED2_OFF?LED
+  +--> ?PR?_COUNTDOWN?TRAFFICLIGHTS
+
+?PR?_TWONIXIE1?NIXIE                  0022H    0001H
+  +--> ?PR?_NIXIE1?NIXIE
+
+?PR?_NIXIE1?NIXIE                     -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 4
+
+
+?PR?_TWONIXIE2?NIXIE                  0022H    0001H
+  +--> ?PR?_NIXIE1?NIXIE
+
+?PR?_COUNTDOWN?TRAFFICLIGHTS          0020H    0002H
+  +--> ?PR?_TWONIXIE1?NIXIE
+  +--> ?PR?_TWONIXIE2?NIXIE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0025H         PUBLIC        ldelay
+  B:0090H.2       PUBLIC        P1_2
+  B:0090H.3       PUBLIC        P1_3
+  B:00B0H.2       PUBLIC        P3_2
+  D:0026H         PUBLIC        Green_Time1
+  D:0027H         PUBLIC        Green_Time2
+  B:00B0H.7       PUBLIC        P3_7
+  D:0028H         PUBLIC        choseMode
+  C:034EH         PUBLIC        timer
+  C:0101H         PUBLIC        main
+  D:0029H         PUBLIC        count
+  D:002AH         PUBLIC        Num
+  C:0476H         PUBLIC        Day_or_Night
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:002BH         PUBLIC        qiehuan
+  D:002CH         PUBLIC        ModeChose
+  -------         PROC          MAIN
+  C:0101H         LINE#         16
+  C:0101H         LINE#         18
+  C:0104H         LINE#         20
+  C:0104H         LINE#         21
+  C:0127H         LINE#         22
+  C:0130H         LINE#         23
+  C:0132H         LINE#         26
+  C:0136H         LINE#         28
+  C:013BH         LINE#         29
+  C:0143H         LINE#         31
+  C:0146H         LINE#         32
+  C:0149H         LINE#         34
+  C:014CH         LINE#         35
+  C:014FH         LINE#         36
+  C:0152H         LINE#         37
+  C:0155H         LINE#         39
+  C:0158H         LINE#         40
+  C:0169H         LINE#         41
+  C:016BH         LINE#         43
+  C:016BH         LINE#         44
+  C:016EH         LINE#         45
+  C:017FH         LINE#         46
+  C:0181H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 5
+
+
+  C:0181H         LINE#         48
+  C:0181H         LINE#         50
+  C:018AH         LINE#         52
+  C:0192H         LINE#         53
+  C:0197H         LINE#         55
+  C:019AH         LINE#         56
+  C:019DH         LINE#         58
+  C:01A0H         LINE#         59
+  C:01A3H         LINE#         60
+  C:01A6H         LINE#         61
+  C:01A9H         LINE#         63
+  C:01ACH         LINE#         65
+  C:01BDH         LINE#         66
+  C:01BFH         LINE#         68
+  C:01BFH         LINE#         69
+  C:01C5H         LINE#         71
+  C:01D6H         LINE#         72
+  C:01D8H         LINE#         74
+  C:01D8H         LINE#         75
+  C:01D8H         LINE#         77
+  C:01DBH         LINE#         78
+  C:01E2H         LINE#         79
+  C:01E9H         LINE#         80
+  C:01E9H         LINE#         81
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER
+  C:034EH         LINE#         85
+  C:036BH         LINE#         86
+  C:0370H         LINE#         87
+  C:0372H         LINE#         88
+  C:0377H         LINE#         89
+  C:0377H         LINE#         90
+  C:037AH         LINE#         91
+  C:037CH         LINE#         93
+  C:037CH         LINE#         94
+  C:038BH         LINE#         95
+  C:039DH         LINE#         96
+  C:039FH         LINE#         97
+  C:03A2H         LINE#         98
+  C:03A4H         LINE#         99
+  C:03A7H         LINE#         100
+  C:03A9H         LINE#         101
+  C:03ACH         LINE#         102
+  C:03ACH         LINE#         104
+  C:03ACH         LINE#         106
+  C:03AFH         LINE#         107
+  C:03B2H         LINE#         108
+  -------         ENDPROC       TIMER
+  -------         PROC          DAY_OR_NIGHT
+  C:0476H         LINE#         111
+  C:047FH         LINE#         112
+  C:0482H         LINE#         114
+  C:048EH         LINE#         115
+  C:0491H         LINE#         116
+  C:0491H         LINE#         118
+  -------         ENDPROC       DAY_OR_NIGHT
+  -------         ENDMOD        MAIN
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 6
+
+
+
+  -------         MODULE        TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:0532H         PUBLIC        TimerInit
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          TIMERINIT
+  C:0532H         LINE#         3
+  C:0532H         LINE#         4
+  C:0535H         LINE#         5
+  C:0538H         LINE#         6
+  C:053BH         LINE#         7
+  C:053DH         LINE#         8
+  C:053FH         LINE#         10
+  C:0541H         LINE#         11
+  C:0543H         LINE#         19
+  C:0545H         LINE#         20
+  -------         ENDPROC       TIMERINIT
+  -------         ENDMOD        TIMER
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:04B1H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0023H         SYMBOL        i
+  D:0024H         SYMBOL        j
+  -------         ENDDO         
+  C:04B1H         LINE#         2
+  C:04B1H         LINE#         3
+  C:04B1H         LINE#         4
+  C:04B5H         LINE#         6
+  C:04B8H         LINE#         7
+  C:04BBH         LINE#         9
+  C:04BBH         LINE#         10
+  C:04BEH         LINE#         11
+  C:04C1H         LINE#         12
+  C:04C6H         LINE#         13
+  C:04C8H         LINE#         15
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0546H         PUBLIC        Yellow1_Flash
+  C:0554H         PUBLIC        Yellow2_Flash
+  C:0562H         PUBLIC        Red1_OFF
+  C:057DH         PUBLIC        Red2_OFF
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 7
+
+
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:00A0H.5       PUBLIC        P2_5
+  C:0568H         PUBLIC        Green1_ON
+  C:0583H         PUBLIC        Green2_ON
+  C:0571H         PUBLIC        Yellow1_ON
+  C:058CH         PUBLIC        Yellow2_ON
+  C:056EH         PUBLIC        Green1_Turn
+  C:0589H         PUBLIC        Green2_Turn
+  C:0577H         PUBLIC        Yellow1_Turn
+  C:0592H         PUBLIC        Yellow2_Turn
+  C:0006H         PUBLIC        Red1_ON
+  C:057AH         PUBLIC        Red2_ON
+  C:0565H         PUBLIC        Red1_Turn
+  C:0580H         PUBLIC        Red2_Turn
+  C:056BH         PUBLIC        Green1_OFF
+  C:0586H         PUBLIC        Green2_OFF
+  C:0574H         PUBLIC        Yellow1_OFF
+  C:058FH         PUBLIC        Yellow2_OFF
+  -------         PROC          RED1_ON
+  C:0006H         LINE#         9
+  C:0006H         LINE#         10
+  C:0008H         LINE#         11
+  -------         ENDPROC       RED1_ON
+  -------         PROC          RED1_OFF
+  C:0562H         LINE#         12
+  C:0562H         LINE#         13
+  C:0564H         LINE#         14
+  -------         ENDPROC       RED1_OFF
+  -------         PROC          RED1_TURN
+  C:0565H         LINE#         15
+  C:0565H         LINE#         16
+  C:0567H         LINE#         17
+  -------         ENDPROC       RED1_TURN
+  -------         PROC          GREEN1_ON
+  C:0568H         LINE#         18
+  C:0568H         LINE#         19
+  C:056AH         LINE#         20
+  -------         ENDPROC       GREEN1_ON
+  -------         PROC          GREEN1_OFF
+  C:056BH         LINE#         21
+  C:056BH         LINE#         22
+  C:056DH         LINE#         23
+  -------         ENDPROC       GREEN1_OFF
+  -------         PROC          GREEN1_TURN
+  C:056EH         LINE#         24
+  C:056EH         LINE#         25
+  C:0570H         LINE#         26
+  -------         ENDPROC       GREEN1_TURN
+  -------         PROC          YELLOW1_ON
+  C:0571H         LINE#         27
+  C:0571H         LINE#         28
+  C:0573H         LINE#         29
+  -------         ENDPROC       YELLOW1_ON
+  -------         PROC          YELLOW1_OFF
+  C:0574H         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 8
+
+
+  C:0574H         LINE#         31
+  C:0576H         LINE#         32
+  -------         ENDPROC       YELLOW1_OFF
+  -------         PROC          YELLOW1_TURN
+  C:0577H         LINE#         33
+  C:0577H         LINE#         34
+  C:0579H         LINE#         35
+  -------         ENDPROC       YELLOW1_TURN
+  -------         PROC          YELLOW1_FLASH
+  C:0546H         LINE#         36
+  C:0546H         LINE#         37
+  C:0550H         LINE#         38
+  C:0553H         LINE#         39
+  C:0553H         LINE#         40
+  -------         ENDPROC       YELLOW1_FLASH
+  -------         PROC          RED2_ON
+  C:057AH         LINE#         48
+  C:057AH         LINE#         49
+  C:057CH         LINE#         50
+  -------         ENDPROC       RED2_ON
+  -------         PROC          RED2_OFF
+  C:057DH         LINE#         51
+  C:057DH         LINE#         52
+  C:057FH         LINE#         53
+  -------         ENDPROC       RED2_OFF
+  -------         PROC          RED2_TURN
+  C:0580H         LINE#         54
+  C:0580H         LINE#         55
+  C:0582H         LINE#         56
+  -------         ENDPROC       RED2_TURN
+  -------         PROC          GREEN2_ON
+  C:0583H         LINE#         57
+  C:0583H         LINE#         58
+  C:0585H         LINE#         59
+  -------         ENDPROC       GREEN2_ON
+  -------         PROC          GREEN2_OFF
+  C:0586H         LINE#         60
+  C:0586H         LINE#         61
+  C:0588H         LINE#         62
+  -------         ENDPROC       GREEN2_OFF
+  -------         PROC          GREEN2_TURN
+  C:0589H         LINE#         63
+  C:0589H         LINE#         64
+  C:058BH         LINE#         65
+  -------         ENDPROC       GREEN2_TURN
+  -------         PROC          YELLOW2_ON
+  C:058CH         LINE#         66
+  C:058CH         LINE#         67
+  C:058EH         LINE#         68
+  -------         ENDPROC       YELLOW2_ON
+  -------         PROC          YELLOW2_OFF
+  C:058FH         LINE#         69
+  C:058FH         LINE#         70
+  C:0591H         LINE#         71
+  -------         ENDPROC       YELLOW2_OFF
+  -------         PROC          YELLOW2_TURN
+  C:0592H         LINE#         72
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 9
+
+
+  C:0592H         LINE#         73
+  C:0594H         LINE#         74
+  -------         ENDPROC       YELLOW2_TURN
+  -------         PROC          YELLOW2_FLASH
+  C:0554H         LINE#         75
+  C:0554H         LINE#         76
+  C:055EH         LINE#         77
+  C:0561H         LINE#         78
+  C:0561H         LINE#         79
+  -------         ENDPROC       YELLOW2_FLASH
+  -------         ENDMOD        LED
+
+  -------         MODULE        TRAFFICLIGHTS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:04C9H         PUBLIC        NightMode
+  C:04DEH         PUBLIC        Long_Green1
+  C:04F3H         PUBLIC        Long_Green2
+  C:01ECH         PUBLIC        _DayMode
+  C:000EH         PUBLIC        _Countdown
+  D:002DH         PUBLIC        Yellow_Time
+  -------         PROC          _COUNTDOWN
+  D:0020H         SYMBOL        Green_Time1
+  D:0021H         SYMBOL        Green_Time2
+  C:000EH         LINE#         8
+  C:0012H         LINE#         10
+  C:0019H         LINE#         11
+  C:0019H         LINE#         13
+  C:001CH         LINE#         15
+  C:001CH         LINE#         16
+  C:001EH         LINE#         17
+  C:003AH         LINE#         18
+  C:003AH         LINE#         20
+  C:0045H         LINE#         22
+  C:0050H         LINE#         24
+  C:0050H         LINE#         25
+  C:0085H         LINE#         26
+  C:0085H         LINE#         27
+  C:0094H         LINE#         28
+  C:00A1H         LINE#         30
+  C:00A1H         LINE#         31
+  C:00E2H         LINE#         32
+  C:00E2H         LINE#         36
+  C:00F1H         LINE#         38
+  C:0100H         LINE#         40
+  C:0100H         LINE#         41
+  -------         ENDPROC       _COUNTDOWN
+  -------         PROC          _DAYMODE
+  D:0001H         SYMBOL        green_Time1
+  D:001BH         SYMBOL        green_Time2
+  -------         DO            
+  D:001EH         SYMBOL        Green_Time1
+  D:001FH         SYMBOL        Green_Time2
+  -------         ENDDO         
+  C:01ECH         LINE#         45
+  C:01ECH         LINE#         46
+  C:01FCH         LINE#         47
+  C:0201H         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 10
+
+
+  C:0204H         LINE#         50
+  C:0207H         LINE#         51
+  C:020AH         LINE#         52
+  C:020DH         LINE#         54
+  C:0210H         LINE#         55
+  C:0213H         LINE#         57
+  C:0213H         LINE#         65
+  C:022FH         LINE#         67
+  C:0232H         LINE#         68
+  C:0235H         LINE#         69
+  C:0235H         LINE#         71
+  C:0247H         LINE#         72
+  C:0247H         LINE#         74
+  C:024AH         LINE#         75
+  C:024DH         LINE#         77
+  C:0250H         LINE#         78
+  C:0253H         LINE#         80
+  C:0253H         LINE#         89
+  C:0295H         LINE#         92
+  C:0298H         LINE#         93
+  C:029BH         LINE#         94
+  C:029BH         LINE#         96
+  C:02BEH         LINE#         97
+  C:02BEH         LINE#         104
+  C:02C1H         LINE#         105
+  C:02C1H         LINE#         106
+  -------         ENDPROC       _DAYMODE
+  -------         PROC          NIGHTMODE
+  C:04C9H         LINE#         109
+  C:04C9H         LINE#         110
+  C:04CCH         LINE#         111
+  C:04CFH         LINE#         112
+  C:04D2H         LINE#         113
+  C:04D5H         LINE#         114
+  C:04D8H         LINE#         115
+  C:04DBH         LINE#         116
+  -------         ENDPROC       NIGHTMODE
+  -------         PROC          LONG_GREEN1
+  C:04DEH         LINE#         120
+  C:04DEH         LINE#         121
+  C:04E1H         LINE#         122
+  C:04E4H         LINE#         123
+  C:04E7H         LINE#         125
+  C:04EAH         LINE#         126
+  C:04EDH         LINE#         127
+  C:04F0H         LINE#         128
+  -------         ENDPROC       LONG_GREEN1
+  -------         PROC          LONG_GREEN2
+  C:04F3H         LINE#         132
+  C:04F3H         LINE#         133
+  C:04F6H         LINE#         134
+  C:04F9H         LINE#         135
+  C:04FCH         LINE#         137
+  C:04FFH         LINE#         138
+  C:0502H         LINE#         139
+  C:0505H         LINE#         140
+  -------         ENDPROC       LONG_GREEN2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 11
+
+
+  -------         ENDMOD        TRAFFICLIGHTS
+
+  -------         MODULE        NIXIE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0508H         PUBLIC        _Twonixie1
+  C:051DH         PUBLIC        _Twonixie2
+  B:0090H.4       PUBLIC        P1_4
+  B:0090H.5       PUBLIC        P1_5
+  B:0090H.6       PUBLIC        P1_6
+  B:0090H.7       PUBLIC        P1_7
+  C:03D3H         PUBLIC        _nixie1
+  D:0008H         PUBLIC        Digital_tube
+  -------         PROC          L?0010
+  -------         ENDPROC       L?0010
+  -------         PROC          _NIXIE1
+  D:0007H         SYMBOL        location
+  D:0005H         SYMBOL        number
+  C:03D3H         LINE#         8
+  C:03D3H         LINE#         9
+  C:03E3H         LINE#         10
+  C:03E3H         LINE#         11
+  C:03E5H         LINE#         12
+  C:03E7H         LINE#         13
+  C:03E7H         LINE#         14
+  C:03E7H         LINE#         15
+  C:03E9H         LINE#         16
+  C:03E9H         LINE#         17
+  C:03EBH         LINE#         18
+  C:03EDH         LINE#         19
+  C:03EFH         LINE#         20
+  C:03F1H         LINE#         21
+  C:03F3H         LINE#         23
+  C:03F3H         LINE#         24
+  C:03F5H         LINE#         25
+  C:03F7H         LINE#         26
+  C:03F9H         LINE#         27
+  C:03FBH         LINE#         28
+  C:03FDH         LINE#         29
+  C:03FDH         LINE#         30
+  C:03FFH         LINE#         31
+  C:0401H         LINE#         32
+  C:0403H         LINE#         33
+  C:0405H         LINE#         34
+  C:0405H         LINE#         35
+  C:0405H         LINE#         36
+  C:040CH         LINE#         37
+  C:0413H         LINE#         38
+  C:0416H         LINE#         39
+  -------         ENDPROC       _NIXIE1
+  -------         PROC          _TWONIXIE1
+  D:0022H         SYMBOL        number
+  C:0508H         LINE#         41
+  C:050AH         LINE#         42
+  C:0511H         LINE#         43
+  -------         ENDPROC       _TWONIXIE1
+  -------         PROC          _TWONIXIE2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/27/2024  21:30:35  PAGE 12
+
+
+  D:0022H         SYMBOL        number
+  C:051DH         LINE#         62
+  C:051FH         LINE#         63
+  C:0526H         LINE#         64
+  -------         ENDPROC       _TWONIXIE2
+  -------         ENDMOD        NIXIE
+
+  -------         MODULE        KEY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.0       PUBLIC        P1_0
+  B:0090H.1       PUBLIC        P1_1
+  C:0417H         PUBLIC        Key
+  -------         PROC          KEY
+  C:0417H         LINE#         15
+  C:0417H         LINE#         16
+  C:0417H         LINE#         18
+  C:042EH         LINE#         19
+  C:0445H         LINE#         23
+  C:0447H         LINE#         24
+  -------         ENDPROC       KEY
+  -------         ENDMOD        KEY
+
+  -------         MODULE        ?C?CLDPTR
+  C:0498H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RED1_TURN?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GREEN1_TURN?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?YELLOW1_ON?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RED2_TURN?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GREEN2_TURN?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?YELLOW2_ON?LED
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DELAY?DELAY
+    CALLER1: ?PR?TIMER?MAIN
+    CALLER2: ?C_C51STARTUP
+
+Program Size: data=47.0 xdata=0 code=1427
+LINK/LOCATE RUN COMPLETE.  7 WARNING(S),  0 ERROR(S)
