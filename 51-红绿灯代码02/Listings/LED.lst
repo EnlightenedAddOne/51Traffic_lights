@@ -1,0 +1,106 @@
+C51 COMPILER V9.60.7.0   LED                                                               11/29/2024 21:38:26 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\Objects\LED.obj
+COMPILER INVOKED BY: D:\app\Keil_v5\C51\BIN\C51.EXE LED.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\L
+                    -ED.lst) OBJECT(.\Objects\LED.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          extern unsigned char count;
+   4          /********************************************
+   5           *
+   6           *                 南北方向
+   7           *
+   8           ********************************************/
+   9          void Red1_ON(void){
+  10   1              P2_0=0;
+  11   1      }
+  12          void Red1_OFF(void){
+  13   1              P2_0=1;
+  14   1      }
+  15          void Red1_Turn(void){
+  16   1              P2_0=~P2_0;
+  17   1      }
+  18          void Green1_ON(void){
+  19   1              P2_1=0;
+  20   1      }
+  21          void Green1_OFF(void){
+  22   1              P2_1=1;
+  23   1      }
+  24          void Green1_Turn(void){
+  25   1              P2_1=~P2_1;
+  26   1      }
+  27          void Yellow1_ON(void){
+  28   1              P2_2=0;
+  29   1      }
+  30          void Yellow1_OFF(void){
+  31   1              P2_2=1;
+  32   1      }
+  33          void Yellow1_Turn(void){
+  34   1              P2_2=~P2_2;
+  35   1      }
+  36          void Yellow1_Flash(void){
+  37   1              if(count%5==0){
+  38   2                      Yellow1_Turn();
+  39   2              }
+  40   1      }
+  41          
+  42          /********************************************
+  43           *
+  44           *                 东西方向
+  45           *
+  46           ********************************************/
+  47          
+  48          void Red2_ON(void){
+  49   1              P2_3=0;
+  50   1      }
+  51          void Red2_OFF(void){
+  52   1              P2_3=1;
+  53   1      }
+  54          void Red2_Turn(void){
+C51 COMPILER V9.60.7.0   LED                                                               11/29/2024 21:38:26 PAGE 2   
+
+  55   1              P2_3=~P2_3;
+  56   1      }
+  57          void Green2_ON(void){
+  58   1              P2_4=0;
+  59   1      }
+  60          void Green2_OFF(void){
+  61   1              P2_4=1;
+  62   1      }
+  63          void Green2_Turn(void){
+  64   1              P2_4=~P2_4;
+  65   1      }
+  66          void Yellow2_ON(void){
+  67   1              P2_5=0;
+  68   1      }
+  69          void Yellow2_OFF(void){
+  70   1              P2_5=1;
+  71   1      }
+  72          void Yellow2_Turn(void){
+  73   1              P2_5=~P2_5;
+  74   1      }
+  75          void Yellow2_Flash(void){
+  76   1              if(count%5==0){
+  77   2                      Yellow2_Turn();
+  78   2              }
+  79   1      }
+  80          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     82    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

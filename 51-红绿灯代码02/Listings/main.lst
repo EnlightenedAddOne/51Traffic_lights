@@ -1,0 +1,151 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              12/25/2024 18:38:54 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\app\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -main.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          #include "Timer.h"
+   4          #include "TrafficLights.h"
+   5          #include "Nixie.h"
+   6          #include "Key.h"
+   7          #include "LED.h"
+   8          
+   9          unsigned char Green_Time1=30,Green_Time2=30;
+  10           
+  11          
+  12          unsigned char count=0,Num=0,ldelay=0,choseMode=0;
+  13          unsigned char ModeChose =1,qiehuan=0;
+  14          
+  15          
+  16          
+  17          void main(){
+  18   1              
+  19   1              TimerInit();
+  20   1      
+  21   1              while(1){
+  22   2      //              if(P1_2==0){Delay(20);while(P1_2==0);Delay(20);ModeChose=!ModeChose;ldelay=0;}
+  23   2                      
+  24   2                      if(P3_7==0){Delay(20);while(P3_7==0);Delay(20);qiehuan=!qiehuan;ldelay=1;}
+  25   2                      if(ldelay==1){
+  26   3                              Num=0;
+  27   3      
+  28   3                              if(qiehuan==0){
+  29   4                                      
+  30   4                                      Twonixie1(Green_Time1);
+  31   4                                      Twonixie2(Green_Time1+3);
+  32   4                                      
+  33   4                                      Green1_ON();
+  34   4                                      Red2_ON();
+  35   4                                      
+  36   4                                      Green2_OFF();
+  37   4                                      Red1_OFF();
+  38   4                                      Yellow1_OFF();
+  39   4                                      Yellow2_OFF();
+  40   4                                      
+  41   4                                      
+  42   4                              }       
+  43   3      
+  44   3                              if(qiehuan==1){
+  45   4                                      
+  46   4                                      Twonixie1(Green_Time2+3);
+  47   4                                      Twonixie2(Green_Time2);
+  48   4                                      
+  49   4                                      Green2_ON();
+  50   4                                      Red1_ON();
+  51   4                                      
+  52   4                                      Green1_OFF();
+  53   4                                      Red2_OFF();
+  54   4                                      Yellow1_OFF();
+C51 COMPILER V9.60.7.0   MAIN                                                              12/25/2024 18:38:54 PAGE 2   
+
+  55   4                                      Yellow2_OFF();
+  56   4                                      
+  57   4                                      
+  58   4                              }
+  59   3                                      
+  60   3                      }
+  61   2                      else if(ldelay==0){
+  62   3                              Countdown(Green_Time1,Green_Time2);
+  63   3                      }               
+  64   2              }       
+  65   1      }
+  66          
+  67          
+  68          timer () interrupt 1{
+  69   1              ModeChose=Key();
+  70   1              count++;
+  71   1              if(count==20)
+  72   1              {
+  73   2                      count=0;
+  74   2                      Num++;  
+  75   2                      
+  76   2              }
+  77   1              switch(ModeChose){
+  78   2                      case 1:
+  79   2                              DayMode(Green_Time1,Green_Time2);
+  80   2                              break;
+  81   2                      case 0:NightMode();
+  82   2                              break;
+  83   2                      case 2:Long_Green1();
+  84   2                              break;
+  85   2                      case 3:Long_Green2();
+  86   2                              break;
+  87   2      //              case 4:ldelay=!ldelay;
+  88   2      //                      break;
+  89   2      //              case 5:Red_Time--;Green_Time=60-Red_Time;
+  90   2      //                      break;
+  91   2              }
+  92   1      
+  93   1              TH0=15536/256;
+  94   1              TL0=15536%256;
+  95   1      }
+  96          
+  97          
+  98          Green_time333() interrupt 0{    
+  99   1              if(P3_2==0){
+ 100   2                      if(qiehuan==0){
+ 101   3                              Green_Time1++;  
+ 102   3                      }
+ 103   2                      if(qiehuan==1){
+ 104   3                              Green_Time2++;  
+ 105   3                      }
+ 106   2      
+ 107   2              }
+ 108   1              
+ 109   1      }
+ 110          
+ 111          
+ 112          Green_time222() interrupt 2{    
+ 113   1              if(P3_3==0){
+ 114   2                      if(qiehuan==0){
+ 115   3                              Green_Time1--;  
+ 116   3                      }
+C51 COMPILER V9.60.7.0   MAIN                                                              12/25/2024 18:38:54 PAGE 3   
+
+ 117   2                      if(qiehuan==1){
+ 118   3                              Green_Time2--;  
+ 119   3                      }
+ 120   2                      
+ 121   2              }
+ 122   1              
+ 123   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    299    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
